@@ -1,0 +1,28 @@
+name: Snake
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  generate-snake-gif:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2.3.4
+
+      - name: Generate snake GIF
+        uses: Platane/snk@master
+        with:
+          github_user_name: solotov-val
+          svg_out_path: dist/github-contribution-grid-snake.svg
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "solotov-val"
+          git config --global user.email "prillerpatrick@gmail.com"
+          git add dist/github-contribution-grid-snake.svg
+          git commit -m "Update snake GIF"
+          git branch -M output
+          git push -u origin output
