@@ -12,6 +12,11 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2.3.4
 
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
       - name: Generate snake GIF
         uses: Platane/snk@master
         with:
