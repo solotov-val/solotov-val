@@ -24,9 +24,9 @@ jobs:
           config_options: '{"base.header.logo":"https://github.com/solotov-val/solotov-val/blob/main/github-metrics.svg"}'
 
       - name: Commit and push changes
-        run: |
-          git config --global user.name "solotov-val"
-          git config --global user.email "prillerpatrick@gmail.com"
-          git add -A
-          git commit -m "Update metrics"
-          git push
+  run: |
+    git config --global user.name "solotov-val"
+    git config --global user.email "prillerpatrick@gmail.com"
+    git add -A
+    git diff-index --quiet HEAD || git commit -m "Update metrics"
+    git push
