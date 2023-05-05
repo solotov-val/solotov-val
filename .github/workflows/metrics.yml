@@ -23,10 +23,15 @@ jobs:
           output: './github-metrics.svg'
           config_options: '{"base.header.logo":"https://github.com/solotov-val/solotov-val/blob/main/github-metrics.svg", "base.plugins.lines": true, "base.plugins.languages": true}'
 
+      - name: Fetch and merge remote changes
+        run: |
+          git fetch origin
+          git merge origin/main
+
       - name: Commit and push changes
         run: |
           git config --global user.name "solotov-val"
-          git config --global user.email "your.email@example.com"
+          git config --global user.email "prillerpatrick@gmail.com"
           git add -A
           git diff-index --quiet HEAD || git commit -m "Update metrics"
           git push
