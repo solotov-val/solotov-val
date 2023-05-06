@@ -21,7 +21,7 @@ jobs:
           user: solotov-val
           template: classic
           output: './github-metrics.svg'
-          config_options: '{"base.header.logo":"https://github.com/solotov-val/solotov-val/blob/main/github-metrics.svg", "base.plugins.lines": true, "base.plugins.languages": true}'
+          config_options: '{"base.header.logo":"https://github.com/solotov-val/solotov-val/blob/main/github-metrics.svg", "base.plugins.lines": true, "base.plugins.languages": true, "plugin_languages.details": true, "plugin_languages.private": true, "plugin_languages.limit": 10}'
 
       - name: Fetch and merge remote changes
         run: |
