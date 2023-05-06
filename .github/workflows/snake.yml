@@ -13,13 +13,27 @@ jobs:
       - uses: actions/checkout@v2
 
       - uses: Platane/snk@master
-        id: snake-gif
+        id: snake-svg
         with:
           github_user_name: solotov-val
-          gif_out_path: dist/github-contribution-grid-snake.gif
           svg_out_path: dist/github-contribution-grid-snake.svg
-          bg_color: "161b22"
-          line_color: "58a6ff"
+
+      - name: Change background color
+        run: |
+          sed -i 's/fill="none"/fill="#161b22"/g' dist/github-contribution-grid-snake.svg
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.4.0
+        with:
+          node-version: 14
+
+      - name: Install svg2img
+        run: |
+          npm install -g svg2img
+
+      - name: Convert SVG to GIF
+        run: |
+          svg2img dist/github-contribution-grid-snake.svg --type gif --output dist/github-contribution-grid-snake.gif
 
       - run: git status
 
