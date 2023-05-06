@@ -18,6 +18,7 @@ jobs:
           github_user_name: solotov-val
           gif_out_path: dist/github-contribution-grid-snake.gif
           svg_out_path: dist/github-contribution-grid-snake.svg
+          dark_mode: true
 
       - run: git status
 
