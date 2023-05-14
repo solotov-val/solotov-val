@@ -2,7 +2,6 @@ name: Generate Snake
 
 on:
   schedule:
-    # every 6 hours
     - cron: "0 */6 * * *"
   workflow_dispatch:
 
@@ -23,13 +22,9 @@ jobs:
         with:
           node-version: 14
 
-      - name: Convert SVG to GIF using svg2img
+      - name: Install and use svg2img
         run: |
-          npx svg2img dist/github-contribution-grid-snake.svg --type gif --output dist/github-contribution-grid-snake.gif
-
-
-      - name: Convert SVG to GIF
-        run: |
+          npm install -g svg2img
           svg2img dist/github-contribution-grid-snake.svg --type gif --output dist/github-contribution-grid-snake.gif
 
       - run: git status
