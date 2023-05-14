@@ -23,9 +23,10 @@ jobs:
         with:
           node-version: 14
 
-      - name: Install svg2img
+      - name: Convert SVG to GIF using svg2img
         run: |
-          npm install -g svg2img
+          npx svg2img dist/github-contribution-grid-snake.svg --type gif --output dist/github-contribution-grid-snake.gif
+
 
       - name: Convert SVG to GIF
         run: |
