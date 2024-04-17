@@ -15,7 +15,7 @@ jobs:
       - name: Fetch and merge remote changes
         run: |
           git fetch origin
-          git merge origin/main # Ensure this is the same as your metrics.yml branch
+          git merge origin/main 
 
       - uses: Platane/snk@master
         id: snake-svg
